@@ -47,6 +47,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
+/* TODO: Mod4Mask = WIN key */
 #define MODKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
@@ -64,8 +65,13 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
+/* Hotkeys
+ * Cheatsheet = https://gist.github.com/erlendaakre/12eb90eef84a3ab81f7b531e516c9594
+ */
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+	/* An example of a no-modifier function to run a command (see above) */
+	/*{0				XK_Print   spawn, 	   {.v = commandname } }*/
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
