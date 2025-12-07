@@ -6,8 +6,8 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 0;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
-static const char *fonts[]          = { "monospace:size=14" };
-static const char dmenufont[]       = "monospace:size=14";
+static const char *fonts[]          = { "CaskaydiaMono Nerd Font Mono:size=15:antialias=true" };
+static const char dmenufont[]       = "CaskaydiaMono Nerd Font Mono:size=15:antialias=true";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -47,6 +47,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
+/* TODO: Mod4Mask = WIN key */
 #define MODKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
@@ -64,8 +65,13 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
+/* Hotkeys
+ * Cheatsheet = https://gist.github.com/erlendaakre/12eb90eef84a3ab81f7b531e516c9594
+ */
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+	/* An example of a no-modifier function to run a command (see above) */
+	/*{0				XK_Print   spawn, 	   {.v = commandname } }*/
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
